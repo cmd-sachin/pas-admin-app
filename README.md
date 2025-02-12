@@ -1,1 +1,0 @@
-# automate-bdd-generator
