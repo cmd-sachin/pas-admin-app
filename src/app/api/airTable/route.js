@@ -29,7 +29,6 @@ export async function GET() {
           }
         );
     });
-    console.log(records);
     return NextResponse.json({ data: records });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

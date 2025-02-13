@@ -123,8 +123,8 @@ const renderField = (label, value) => {
 };
 
 // ----------------------------------------------------------------
-// Updated RenderAnalysis component accepts an optional headingColor prop
-// for styling the category headings.
+// Updated RenderAnalysis component (for Behavioral Analysis)
+// It remains unchanged except for the optional headingColor prop.
 const RenderAnalysis = ({ analysis, headingColor }) => {
   if (!analysis) return <Typography variant="body2">N/A</Typography>;
 
@@ -232,12 +232,19 @@ const RenderAnalysis = ({ analysis, headingColor }) => {
 };
 
 // ----------------------------------------------------------------
-// New component for paginated Detailed Analysis (one question per page)
+// New component for paginated Detailed Analysis (one item per page)
+// Updated to handle the new array structure and render the question,
+// response, and the complete analysis report.
 const PaginatedDetailedAnalysis = ({ analysis }) => {
-  // Flatten the analysis object into an array of questions with category info
+  // Flatten analysis into an array.
+  // If analysis is already an array (new structure), use it directly.
+  // Otherwise, if it is an object, flatten it by category.
   const flattenAnalysis = (analysisData) => {
+    if (!analysisData) return [];
+    if (Array.isArray(analysisData)) {
+      return analysisData;
+    }
     let questions = [];
-    if (!analysisData) return questions;
     let parsedAnalysis = analysisData;
     if (typeof analysisData === "string") {
       try {
@@ -250,7 +257,8 @@ const PaginatedDetailedAnalysis = ({ analysis }) => {
       const entries = parsedAnalysis[category];
       if (Array.isArray(entries)) {
         entries.forEach((entry) => {
-          questions.push({ category, entry });
+          // If not already provided, add a topic field from the category key.
+          questions.push({ ...entry, topic: entry.topic || category });
         });
       }
     });
@@ -266,68 +274,99 @@ const PaginatedDetailedAnalysis = ({ analysis }) => {
 
   const currentQuestion = questions[currentIndex];
 
-  // Renders a single question (similar to the RenderAnalysis entry layout)
+  // Render a single detailed analysis item.
   const renderQuestion = (questionData) => {
-    const { entry } = questionData;
+    const { topic, headers, question, response, report } = questionData;
     return (
-      <Box sx={{ mb: 2, pl: 2, borderLeft: "2px solid #ddd", py: 1 }}>
-        <Typography variant="subtitle1">
-          Question {renderValue(entry.questionNumber)}
-        </Typography>
-        <Typography variant="body2">
-          <strong>Key Competencies:</strong>{" "}
-          {Array.isArray(entry.keyCompetencies)
-            ? entry.keyCompetencies.join(", ")
-            : renderValue(entry.keyCompetencies)}
-        </Typography>
-        {entry.improvementAreas && entry.improvementAreas.length > 0 && (
-          <Box sx={{ mt: 1, ml: 2 }}>
-            <Typography
-              variant="body2"
-              color="error"
-              sx={{ fontWeight: "bold" }}
-            >
-              Improvement Areas:
+      <Box
+        sx={{
+          mb: 2,
+          pl: 2,
+          borderLeft: "2px solid #ddd",
+          py: 1,
+          fontWeight: "500",
+        }}
+      >
+        <Box sx={{ mb: 1 }}>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Question:
+          </Typography>
+          <Typography variant="body2" sx={{ ml: 2, whiteSpace: "pre-wrap" }}>
+            {question}
+          </Typography>
+        </Box>
+        <Box sx={{ mb: 1 }}>
+          <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            Response:
+          </Typography>
+          <Typography variant="body2" sx={{ ml: 2, whiteSpace: "pre-wrap" }}>
+            {response}
+          </Typography>
+        </Box>
+        {report && (
+          <Box sx={{ mt: 1 }}>
+            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+              Analysis:
             </Typography>
-            {entry.improvementAreas.map((item, i) => (
-              <Box key={i} sx={{ ml: 2, my: 0.5 }}>
-                <Typography variant="body2">• {item.point}</Typography>
-                <Typography variant="caption" color="text.secondary">
-                  Example: {item.example}
+
+            {report.keyCompetencies && (
+              <Typography variant="body2" sx={{ ml: 2 }}>
+                <strong>Key Competencies:</strong>{" "}
+                {Array.isArray(report.keyCompetencies)
+                  ? report.keyCompetencies.join(", ")
+                  : report.keyCompetencies}
+              </Typography>
+            )}
+            {report.improvementAreas && report.improvementAreas.length > 0 && (
+              <Box sx={{ ml: 2 }}>
+                <Typography
+                  variant="body2"
+                  color="error"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  Improvement Areas:
                 </Typography>
+                {report.improvementAreas.map((item, i) => (
+                  <Box key={i} sx={{ ml: 2, my: 0.5 }}>
+                    <Typography variant="body2">• {item.point}</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                      Example: {item.example}
+                    </Typography>
+                  </Box>
+                ))}
               </Box>
-            ))}
+            )}
+            {report.quickRecommendations &&
+              report.quickRecommendations.length > 0 && (
+                <Box sx={{ ml: 2, mt: 1 }}>
+                  <Typography
+                    variant="body2"
+                    color="primary"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    Quick Recommendations:
+                  </Typography>
+                  {report.quickRecommendations.map((item, i) => (
+                    <Box key={i} sx={{ ml: 2, my: 0.5 }}>
+                      <Typography variant="body2">
+                        • {item.recommendation}
+                      </Typography>
+                      <Typography variant="caption" color="text.secondary">
+                        Example: {item.example}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              )}
           </Box>
         )}
-        {entry.quickRecommendations &&
-          entry.quickRecommendations.length > 0 && (
-            <Box sx={{ mt: 1, ml: 2 }}>
-              <Typography
-                variant="body2"
-                color="primary"
-                sx={{ fontWeight: "bold" }}
-              >
-                Quick Recommendations:
-              </Typography>
-              {entry.quickRecommendations.map((item, i) => (
-                <Box key={i} sx={{ ml: 2, my: 0.5 }}>
-                  <Typography variant="body2">
-                    • {item.recommendation}
-                  </Typography>
-                  <Typography variant="caption" color="text.secondary">
-                    Example: {item.example}
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-          )}
       </Box>
     );
   };
 
   return (
     <Box>
-      {/* Category Heading */}
+      {/* Heading based on the topic */}
       <Typography
         variant="h6"
         sx={{
@@ -338,9 +377,8 @@ const PaginatedDetailedAnalysis = ({ analysis }) => {
           pt: 1,
         }}
       >
-        {toTitleCase(currentQuestion.category)}
+        {toTitleCase(currentQuestion.topic)}
       </Typography>
-      {/* Render current question */}
       {renderQuestion(currentQuestion)}
       {/* Pagination controls */}
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
@@ -491,7 +529,7 @@ export default function CandidateProfile({ candidate, onBack }) {
             </Avatar>
           }
         />
-        <CardContent sx={{ maxHeight: 600, overflowY: "auto" }}>
+        <CardContent sx={{ maxHeight: 400, overflowY: "auto" }}>
           <PaginatedDetailedAnalysis analysis={candidate.detailedAnalysis} />
         </CardContent>
       </Card>

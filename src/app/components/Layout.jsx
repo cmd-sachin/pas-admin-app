@@ -8,6 +8,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { theme } from "../styles/theme";
+import "../../app/globals.css";
 
 export default function Layout({ children }) {
   return (
