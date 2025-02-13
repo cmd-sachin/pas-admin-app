@@ -40,6 +40,13 @@ export default function CandidatesList({
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+  const toTitleCase = (str) => {
+    if (!str) return "";
+    return str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
 
   return (
     <Card sx={{ mt: 3 }}>
@@ -79,7 +86,9 @@ export default function CandidatesList({
                   }}
                 >
                   <Box>
-                    <Typography variant="h6">{candidate.name}</Typography>
+                    <Typography variant="h6">
+                      {toTitleCase(candidate.name)}
+                    </Typography>
                     {candidate.email && (
                       <Typography variant="body2" color="text.secondary">
                         {candidate.email}

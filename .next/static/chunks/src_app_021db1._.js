@@ -199,6 +199,10 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
     const handlePageChange = (newPage)=>{
         setCurrentPage(newPage);
     };
+    const toTitleCase = (str)=>{
+        if (!str) return "";
+        return str.split(" ").map((word)=>word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
         sx: {
             mt: 3
@@ -219,7 +223,7 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                    lineNumber: 47,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, this),
                 loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -230,12 +234,12 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                     },
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CircularProgress$2f$CircularProgress$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CircularProgress$3e$__["CircularProgress"], {}, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateList.jsx",
-                        lineNumber: 60,
+                        lineNumber: 67,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                    lineNumber: 59,
+                    lineNumber: 66,
                     columnNumber: 11
                 }, this) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Alert$2f$Alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Alert$3e$__["Alert"], {
                     severity: "error",
@@ -245,7 +249,7 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                    lineNumber: 63,
+                    lineNumber: 70,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
                     children: [
@@ -268,10 +272,10 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
                                                     variant: "h6",
-                                                    children: candidate.name
+                                                    children: toTitleCase(candidate.name)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                                                    lineNumber: 82,
+                                                    lineNumber: 89,
                                                     columnNumber: 21
                                                 }, this),
                                                 candidate.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -280,13 +284,13 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                                                     children: candidate.email
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                                                    lineNumber: 84,
+                                                    lineNumber: 93,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/components/CandidateList.jsx",
-                                            lineNumber: 81,
+                                            lineNumber: 88,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Button$2f$Button$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Button$3e$__["Button"], {
@@ -295,18 +299,18 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                                             children: "View Details"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/CandidateList.jsx",
-                                            lineNumber: 89,
+                                            lineNumber: 98,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                                    lineNumber: 74,
+                                    lineNumber: 81,
                                     columnNumber: 17
                                 }, this)
                             }, index, false, {
                                 fileName: "[project]/src/app/components/CandidateList.jsx",
-                                lineNumber: 69,
+                                lineNumber: 76,
                                 columnNumber: 15
                             }, this)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -327,7 +331,7 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                                    lineNumber: 101,
+                                    lineNumber: 110,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -341,12 +345,12 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                                             disabled: currentPage === 1,
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$ChevronLeft$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                 fileName: "[project]/src/app/components/CandidateList.jsx",
-                                                lineNumber: 109,
+                                                lineNumber: 118,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/CandidateList.jsx",
-                                            lineNumber: 105,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$IconButton$2f$IconButton$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__IconButton$3e$__["IconButton"], {
@@ -354,41 +358,41 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                                             disabled: currentPage === totalPages,
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$ChevronRight$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                 fileName: "[project]/src/app/components/CandidateList.jsx",
-                                                lineNumber: 115,
+                                                lineNumber: 124,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/CandidateList.jsx",
-                                            lineNumber: 111,
+                                            lineNumber: 120,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                                    lineNumber: 104,
+                                    lineNumber: 113,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/components/CandidateList.jsx",
-                            lineNumber: 98,
+                            lineNumber: 107,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/components/CandidateList.jsx",
-                    lineNumber: 67,
+                    lineNumber: 74,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/components/CandidateList.jsx",
-            lineNumber: 46,
+            lineNumber: 53,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/components/CandidateList.jsx",
-        lineNumber: 45,
+        lineNumber: 52,
         columnNumber: 5
     }, this);
 }
@@ -426,6 +430,10 @@ function Leaderboard({ candidates, loading, error }) {
     const sortedCandidates = [
         ...candidates
     ].sort((a, b)=>b.overallscore - a.overallscore);
+    const toTitleCase = (str)=>{
+        if (!str) return "";
+        return str.split(" ").map((word)=>word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
         sx: {
             mt: 3
@@ -437,12 +445,12 @@ function Leaderboard({ candidates, loading, error }) {
                     children: "Leaderboard"
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Leaderboard.jsx",
-                    lineNumber: 22,
+                    lineNumber: 29,
                     columnNumber: 26
                 }, void 0)
             }, void 0, false, {
                 fileName: "[project]/src/app/components/Leaderboard.jsx",
-                lineNumber: 22,
+                lineNumber: 29,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
@@ -454,12 +462,12 @@ function Leaderboard({ candidates, loading, error }) {
                     },
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CircularProgress$2f$CircularProgress$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CircularProgress$3e$__["CircularProgress"], {}, void 0, false, {
                         fileName: "[project]/src/app/components/Leaderboard.jsx",
-                        lineNumber: 26,
+                        lineNumber: 33,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Leaderboard.jsx",
-                    lineNumber: 25,
+                    lineNumber: 32,
                     columnNumber: 11
                 }, this) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Alert$2f$Alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Alert$3e$__["Alert"], {
                     severity: "error",
@@ -469,7 +477,7 @@ function Leaderboard({ candidates, loading, error }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Leaderboard.jsx",
-                    lineNumber: 29,
+                    lineNumber: 36,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
                     children: sortedCandidates.map((candidate, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
@@ -494,11 +502,11 @@ function Leaderboard({ candidates, loading, error }) {
                                                 children: [
                                                     index + 1,
                                                     ". ",
-                                                    candidate.name
+                                                    toTitleCase(candidate.name)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/components/Leaderboard.jsx",
-                                                lineNumber: 48,
+                                                lineNumber: 55,
                                                 columnNumber: 21
                                             }, this),
                                             candidate.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -507,13 +515,13 @@ function Leaderboard({ candidates, loading, error }) {
                                                 children: candidate.email
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/components/Leaderboard.jsx",
-                                                lineNumber: 52,
+                                                lineNumber: 59,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/Leaderboard.jsx",
-                                        lineNumber: 47,
+                                        lineNumber: 54,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -524,34 +532,34 @@ function Leaderboard({ candidates, loading, error }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/components/Leaderboard.jsx",
-                                        lineNumber: 57,
+                                        lineNumber: 64,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/Leaderboard.jsx",
-                                lineNumber: 40,
+                                lineNumber: 47,
                                 columnNumber: 17
                             }, this)
                         }, index, false, {
                             fileName: "[project]/src/app/components/Leaderboard.jsx",
-                            lineNumber: 35,
+                            lineNumber: 42,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/Leaderboard.jsx",
-                    lineNumber: 33,
+                    lineNumber: 40,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/components/Leaderboard.jsx",
-                lineNumber: 23,
+                lineNumber: 30,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/components/Leaderboard.jsx",
-        lineNumber: 21,
+        lineNumber: 28,
         columnNumber: 5
     }, this);
 }
@@ -587,8 +595,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$ico
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Summarize$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@mui/icons-material/esm/Summarize.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Assessment$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@mui/icons-material/esm/Assessment.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Psychology$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@mui/icons-material/esm/Psychology.js [app-client] (ecmascript)");
-"use client";
 ;
+var _s = __turbopack_refresh__.signature();
+"use client";
 ;
 ;
 ;
@@ -865,13 +874,16 @@ const renderField = (label, value)=>{
         }, this);
     }
 };
-const RenderAnalysis = ({ analysis })=>{
+// ----------------------------------------------------------------
+// Updated RenderAnalysis component accepts an optional headingColor prop
+// for styling the category headings.
+const RenderAnalysis = ({ analysis, headingColor })=>{
     if (!analysis) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
         variant: "body2",
         children: "N/A"
     }, void 0, false, {
         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-        lineNumber: 126,
+        lineNumber: 129,
         columnNumber: 25
     }, this);
     if (typeof analysis === "string") {
@@ -883,7 +895,7 @@ const RenderAnalysis = ({ analysis })=>{
                 children: analysis
             }, void 0, false, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 132,
+                lineNumber: 135,
                 columnNumber: 14
             }, this);
         }
@@ -899,14 +911,15 @@ const RenderAnalysis = ({ analysis })=>{
                         sx: {
                             textTransform: "capitalize",
                             mb: 1,
-                            borderBottom: "1px solid #ccc",
+                            borderBottom: headingColor ? `2px solid ${headingColor}` : "1px solid #ccc",
                             textAlign: "center",
-                            pt: 1
+                            pt: 1,
+                            color: headingColor || "inherit"
                         },
                         children: toTitleCase(category)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 140,
+                        lineNumber: 143,
                         columnNumber: 11
                     }, this),
                     Array.isArray(analysis[category]) ? analysis[category].map((entry, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -925,7 +938,7 @@ const RenderAnalysis = ({ analysis })=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 158,
+                                    lineNumber: 164,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -935,7 +948,7 @@ const RenderAnalysis = ({ analysis })=>{
                                             children: "Key Competencies:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                            lineNumber: 162,
+                                            lineNumber: 168,
                                             columnNumber: 19
                                         }, this),
                                         " ",
@@ -943,7 +956,7 @@ const RenderAnalysis = ({ analysis })=>{
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 161,
+                                    lineNumber: 167,
                                     columnNumber: 17
                                 }, this),
                                 entry.improvementAreas && entry.improvementAreas.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -961,7 +974,7 @@ const RenderAnalysis = ({ analysis })=>{
                                             children: "Improvement Areas:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                            lineNumber: 170,
+                                            lineNumber: 176,
                                             columnNumber: 23
                                         }, this),
                                         entry.improvementAreas.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -978,7 +991,7 @@ const RenderAnalysis = ({ analysis })=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                                        lineNumber: 179,
+                                                        lineNumber: 185,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -990,19 +1003,19 @@ const RenderAnalysis = ({ analysis })=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                                        lineNumber: 182,
+                                                        lineNumber: 188,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                                lineNumber: 178,
+                                                lineNumber: 184,
                                                 columnNumber: 25
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 169,
+                                    lineNumber: 175,
                                     columnNumber: 21
                                 }, this),
                                 entry.quickRecommendations && entry.quickRecommendations.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -1020,7 +1033,7 @@ const RenderAnalysis = ({ analysis })=>{
                                             children: "Quick Recommendations:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                            lineNumber: 192,
+                                            lineNumber: 198,
                                             columnNumber: 23
                                         }, this),
                                         entry.quickRecommendations.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -1037,7 +1050,7 @@ const RenderAnalysis = ({ analysis })=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                                        lineNumber: 201,
+                                                        lineNumber: 207,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -1049,25 +1062,25 @@ const RenderAnalysis = ({ analysis })=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                                        lineNumber: 204,
+                                                        lineNumber: 210,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                                lineNumber: 200,
+                                                lineNumber: 206,
                                                 columnNumber: 25
                                             }, this))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 191,
+                                    lineNumber: 197,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, idx, true, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 154,
+                            lineNumber: 160,
                             columnNumber: 15
                         }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
                         sx: {
@@ -1080,27 +1093,309 @@ const RenderAnalysis = ({ analysis })=>{
                                 children: renderField(field, analysis[category][field])
                             }, index, false, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 216,
+                                lineNumber: 222,
                                 columnNumber: 17
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 214,
+                        lineNumber: 220,
                         columnNumber: 13
                     }, this)
                 ]
             }, category, true, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 139,
+                lineNumber: 142,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-        lineNumber: 137,
+        lineNumber: 140,
         columnNumber: 5
     }, this);
 };
 _c = RenderAnalysis;
+// ----------------------------------------------------------------
+// New component for paginated Detailed Analysis (one question per page)
+const PaginatedDetailedAnalysis = ({ analysis })=>{
+    _s();
+    // Flatten the analysis object into an array of questions with category info
+    const flattenAnalysis = (analysisData)=>{
+        let questions = [];
+        if (!analysisData) return questions;
+        let parsedAnalysis = analysisData;
+        if (typeof analysisData === "string") {
+            try {
+                parsedAnalysis = JSON.parse(analysisData);
+            } catch (error) {
+                return questions;
+            }
+        }
+        Object.keys(parsedAnalysis).forEach((category)=>{
+            const entries = parsedAnalysis[category];
+            if (Array.isArray(entries)) {
+                entries.forEach((entry)=>{
+                    questions.push({
+                        category,
+                        entry
+                    });
+                });
+            }
+        });
+        return questions;
+    };
+    const questions = flattenAnalysis(analysis);
+    const [currentIndex, setCurrentIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    if (questions.length === 0) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+            variant: "body2",
+            children: "N/A"
+        }, void 0, false, {
+            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+            lineNumber: 264,
+            columnNumber: 12
+        }, this);
+    }
+    const currentQuestion = questions[currentIndex];
+    // Renders a single question (similar to the RenderAnalysis entry layout)
+    const renderQuestion = (questionData)=>{
+        const { entry } = questionData;
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+            sx: {
+                mb: 2,
+                pl: 2,
+                borderLeft: "2px solid #ddd",
+                py: 1
+            },
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                    variant: "subtitle1",
+                    children: [
+                        "Question ",
+                        renderValue(entry.questionNumber)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                    lineNumber: 274,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                    variant: "body2",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                            children: "Key Competencies:"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                            lineNumber: 278,
+                            columnNumber: 11
+                        }, this),
+                        " ",
+                        Array.isArray(entry.keyCompetencies) ? entry.keyCompetencies.join(", ") : renderValue(entry.keyCompetencies)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                    lineNumber: 277,
+                    columnNumber: 9
+                }, this),
+                entry.improvementAreas && entry.improvementAreas.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+                    sx: {
+                        mt: 1,
+                        ml: 2
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                            variant: "body2",
+                            color: "error",
+                            sx: {
+                                fontWeight: "bold"
+                            },
+                            children: "Improvement Areas:"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                            lineNumber: 285,
+                            columnNumber: 13
+                        }, this),
+                        entry.improvementAreas.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+                                sx: {
+                                    ml: 2,
+                                    my: 0.5
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                                        variant: "body2",
+                                        children: [
+                                            "• ",
+                                            item.point
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                                        lineNumber: 294,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                                        variant: "caption",
+                                        color: "text.secondary",
+                                        children: [
+                                            "Example: ",
+                                            item.example
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                                        lineNumber: 295,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, i, true, {
+                                fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                                lineNumber: 293,
+                                columnNumber: 15
+                            }, this))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                    lineNumber: 284,
+                    columnNumber: 11
+                }, this),
+                entry.quickRecommendations && entry.quickRecommendations.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+                    sx: {
+                        mt: 1,
+                        ml: 2
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                            variant: "body2",
+                            color: "primary",
+                            sx: {
+                                fontWeight: "bold"
+                            },
+                            children: "Quick Recommendations:"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                            lineNumber: 305,
+                            columnNumber: 15
+                        }, this),
+                        entry.quickRecommendations.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+                                sx: {
+                                    ml: 2,
+                                    my: 0.5
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                                        variant: "body2",
+                                        children: [
+                                            "• ",
+                                            item.recommendation
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                                        lineNumber: 314,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                                        variant: "caption",
+                                        color: "text.secondary",
+                                        children: [
+                                            "Example: ",
+                                            item.example
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                                        lineNumber: 317,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, i, true, {
+                                fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                                lineNumber: 313,
+                                columnNumber: 17
+                            }, this))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                    lineNumber: 304,
+                    columnNumber: 13
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+            lineNumber: 273,
+            columnNumber: 7
+        }, this);
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                variant: "h6",
+                sx: {
+                    textTransform: "capitalize",
+                    mb: 1,
+                    borderBottom: "1px solid #ccc",
+                    textAlign: "center",
+                    pt: 1
+                },
+                children: toTitleCase(currentQuestion.category)
+            }, void 0, false, {
+                fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                lineNumber: 331,
+                columnNumber: 7
+            }, this),
+            renderQuestion(currentQuestion),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+                sx: {
+                    display: "flex",
+                    justifyContent: "space-between",
+                    mt: 2
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Button$2f$Button$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Button$3e$__["Button"], {
+                        variant: "contained",
+                        onClick: ()=>setCurrentIndex((prev)=>prev - 1),
+                        disabled: currentIndex === 0,
+                        children: "Previous"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                        lineNumber: 347,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                        variant: "body2",
+                        sx: {
+                            alignSelf: "center"
+                        },
+                        children: [
+                            currentIndex + 1,
+                            " of ",
+                            questions.length
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                        lineNumber: 354,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Button$2f$Button$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Button$3e$__["Button"], {
+                        variant: "contained",
+                        onClick: ()=>setCurrentIndex((prev)=>prev + 1),
+                        disabled: currentIndex === questions.length - 1,
+                        children: "Next"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                        lineNumber: 357,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                lineNumber: 346,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+        lineNumber: 329,
+        columnNumber: 5
+    }, this);
+};
+_s(PaginatedDetailedAnalysis, "tusBbsahUVevXfyh6oH5R6YDC9Q=");
+_c1 = PaginatedDetailedAnalysis;
 function CandidateProfile({ candidate, onBack }) {
     const getStatusColor = (status)=>{
         switch(status?.toLowerCase()){
@@ -1129,12 +1424,12 @@ function CandidateProfile({ candidate, onBack }) {
                     children: "Back"
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                    lineNumber: 243,
+                    lineNumber: 387,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 242,
+                lineNumber: 386,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
@@ -1148,12 +1443,12 @@ function CandidateProfile({ candidate, onBack }) {
                         avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Person$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 252,
+                                lineNumber: 396,
                                 columnNumber: 15
                             }, void 0)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 251,
+                            lineNumber: 395,
                             columnNumber: 13
                         }, void 0),
                         action: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Chip$2f$Chip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Chip$3e$__["Chip"], {
@@ -1164,12 +1459,12 @@ function CandidateProfile({ candidate, onBack }) {
                             }
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 256,
+                            lineNumber: 400,
                             columnNumber: 13
                         }, void 0)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 248,
+                        lineNumber: 392,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
@@ -1181,7 +1476,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         children: "Name:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                        lineNumber: 265,
+                                        lineNumber: 409,
                                         columnNumber: 13
                                     }, this),
                                     " ",
@@ -1189,7 +1484,7 @@ function CandidateProfile({ candidate, onBack }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 264,
+                                lineNumber: 408,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -1199,7 +1494,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         children: "Phone:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                        lineNumber: 268,
+                                        lineNumber: 412,
                                         columnNumber: 13
                                     }, this),
                                     " ",
@@ -1207,7 +1502,7 @@ function CandidateProfile({ candidate, onBack }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 267,
+                                lineNumber: 411,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -1217,7 +1512,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         children: "Department:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                        lineNumber: 271,
+                                        lineNumber: 415,
                                         columnNumber: 13
                                     }, this),
                                     " ",
@@ -1225,7 +1520,7 @@ function CandidateProfile({ candidate, onBack }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 270,
+                                lineNumber: 414,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -1235,7 +1530,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         children: "College:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                        lineNumber: 275,
+                                        lineNumber: 419,
                                         columnNumber: 13
                                     }, this),
                                     " ",
@@ -1243,19 +1538,19 @@ function CandidateProfile({ candidate, onBack }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 274,
+                                lineNumber: 418,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 263,
+                        lineNumber: 407,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 247,
+                lineNumber: 391,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
@@ -1269,17 +1564,17 @@ function CandidateProfile({ candidate, onBack }) {
                         avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$TrendingUp$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 284,
+                                lineNumber: 428,
                                 columnNumber: 15
                             }, void 0)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 283,
+                            lineNumber: 427,
                             columnNumber: 13
                         }, void 0)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 280,
+                        lineNumber: 424,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
@@ -1297,7 +1592,7 @@ function CandidateProfile({ candidate, onBack }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 292,
+                                lineNumber: 436,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
@@ -1313,19 +1608,19 @@ function CandidateProfile({ candidate, onBack }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 295,
+                                lineNumber: 439,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 288,
+                        lineNumber: 432,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 279,
+                lineNumber: 423,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
@@ -1339,17 +1634,17 @@ function CandidateProfile({ candidate, onBack }) {
                         avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$ThumbUp$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 308,
+                                lineNumber: 452,
                                 columnNumber: 15
                             }, void 0)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 307,
+                            lineNumber: 451,
                             columnNumber: 13
                         }, void 0)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 304,
+                        lineNumber: 448,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
@@ -1362,18 +1657,18 @@ function CandidateProfile({ candidate, onBack }) {
                             children: toTitleCase(candidate.recommendation)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 313,
+                            lineNumber: 457,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 312,
+                        lineNumber: 456,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 303,
+                lineNumber: 447,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
@@ -1387,17 +1682,17 @@ function CandidateProfile({ candidate, onBack }) {
                         avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Summarize$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 326,
+                                lineNumber: 470,
                                 columnNumber: 15
                             }, void 0)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 325,
+                            lineNumber: 469,
                             columnNumber: 13
                         }, void 0)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 322,
+                        lineNumber: 466,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
@@ -1410,138 +1705,129 @@ function CandidateProfile({ candidate, onBack }) {
                             children: toTitleCase(candidate.summary)
                         }, void 0, false, {
                             fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                            lineNumber: 331,
+                            lineNumber: 475,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 330,
+                        lineNumber: 474,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 321,
+                lineNumber: 465,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
+                variant: "outlined",
                 sx: {
-                    display: "flex",
-                    gap: 3,
-                    mb: 3
+                    mb: 3,
+                    width: "100%"
                 },
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
-                        variant: "outlined",
-                        sx: {
-                            flex: 1
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardHeader$2f$CardHeader$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardHeader$3e$__["CardHeader"], {
-                                title: "Detailed Analysis",
-                                avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Assessment$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
-                                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                        lineNumber: 346,
-                                        columnNumber: 17
-                                    }, void 0)
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 345,
-                                    columnNumber: 15
-                                }, void 0)
-                            }, void 0, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardHeader$2f$CardHeader$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardHeader$3e$__["CardHeader"], {
+                        title: "Detailed Analysis",
+                        avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Assessment$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 342,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
-                                sx: {
-                                    maxHeight: 600,
-                                    overflowY: "auto"
-                                },
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(RenderAnalysis, {
-                                    analysis: candidate.detailedAnalysis
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 351,
-                                    columnNumber: 13
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 350,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                                lineNumber: 490,
+                                columnNumber: 15
+                            }, void 0)
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                            lineNumber: 489,
+                            columnNumber: 13
+                        }, void 0)
+                    }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 341,
+                        lineNumber: 486,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
-                        variant: "outlined",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
                         sx: {
-                            flex: 1
+                            maxHeight: 600,
+                            overflowY: "auto"
                         },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardHeader$2f$CardHeader$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardHeader$3e$__["CardHeader"], {
-                                title: "Behavioral Analysis",
-                                avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Psychology$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
-                                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                        lineNumber: 359,
-                                        columnNumber: 17
-                                    }, void 0)
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 358,
-                                    columnNumber: 15
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 355,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
-                                sx: {
-                                    maxHeight: 600,
-                                    overflowY: "auto"
-                                },
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(RenderAnalysis, {
-                                    analysis: candidate.behavioralAnalysis
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                    lineNumber: 364,
-                                    columnNumber: 13
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                                lineNumber: 363,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PaginatedDetailedAnalysis, {
+                            analysis: candidate.detailedAnalysis
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                            lineNumber: 495,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
                         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                        lineNumber: 354,
+                        lineNumber: 494,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
-                lineNumber: 340,
+                lineNumber: 485,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Card$2f$Card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Card$3e$__["Card"], {
+                variant: "outlined",
+                sx: {
+                    mb: 3,
+                    width: "100%"
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardHeader$2f$CardHeader$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardHeader$3e$__["CardHeader"], {
+                        title: "Behavioral Analysis",
+                        avatar: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Avatar$2f$Avatar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Avatar$3e$__["Avatar"], {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Psychology$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                                lineNumber: 505,
+                                columnNumber: 15
+                            }, void 0)
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                            lineNumber: 504,
+                            columnNumber: 13
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                        lineNumber: 501,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$CardContent$2f$CardContent$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CardContent$3e$__["CardContent"], {
+                        sx: {
+                            maxHeight: 350,
+                            overflowY: "auto"
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(RenderAnalysis, {
+                            analysis: candidate.behavioralAnalysis,
+                            headingColor: "primary.main"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                            lineNumber: 510,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                        lineNumber: 509,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/components/CandidateProfile.jsx",
+                lineNumber: 500,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/components/CandidateProfile.jsx",
-        lineNumber: 241,
+        lineNumber: 385,
         columnNumber: 5
     }, this);
 }
-_c1 = CandidateProfile;
-var _c, _c1;
+_c2 = CandidateProfile;
+var _c, _c1, _c2;
 __turbopack_refresh__.register(_c, "RenderAnalysis");
-__turbopack_refresh__.register(_c1, "CandidateProfile");
+__turbopack_refresh__.register(_c1, "PaginatedDetailedAnalysis");
+__turbopack_refresh__.register(_c2, "CandidateProfile");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_refresh__.registerExports(module, globalThis.$RefreshHelpers$);
 }

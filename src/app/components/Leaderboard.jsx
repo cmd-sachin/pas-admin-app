@@ -16,6 +16,13 @@ export default function Leaderboard({ candidates, loading, error }) {
   const sortedCandidates = [...candidates].sort(
     (a, b) => b.overallscore - a.overallscore
   );
+  const toTitleCase = (str) => {
+    if (!str) return "";
+    return str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
 
   return (
     <Card sx={{ mt: 3 }}>
@@ -46,7 +53,7 @@ export default function Leaderboard({ candidates, loading, error }) {
                 >
                   <Box>
                     <Typography variant="h6">
-                      {index + 1}. {candidate.name}
+                      {index + 1}. {toTitleCase(candidate.name)}
                     </Typography>
                     {candidate.email && (
                       <Typography variant="body2" color="text.secondary">
