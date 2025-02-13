@@ -1,50 +1,198 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* globals.css */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --font-family: 'Inter', sans-serif;
+  --primary-color: #1976d2;
+  --secondary-color: #4caf50;
+  --warning-color: #ffc107;
+  --error-color: #d32f2f;
+  --text-primary: #1a237e;
+  --text-secondary: #757575;
+  --border-color: #e0e0e0;
+  --progress-bar-bg: #e0e0e0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base Styles */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", sans-serif;
+  background-color: #f5f5f5;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 1200px;
-  width: 100%;
+/* Main Container for Candidate Profile Pages */
+.candidate-profile-container {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
+/* Card Styles */
+.MuiCard-root {
+  border-radius: 12px !important;
+  transition: box-shadow 0.3s ease-in-out !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.MuiCard-root:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Card Header */
+.MuiCardHeader-root {
+  background-color: rgba(25, 118, 210, 0.08);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.MuiCardHeader-title {
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.5px;
+}
+
+.MuiCardHeader-avatar .MuiAvatar-root {
+  background-color: var(--primary-color) !important;
+}
+
+/* Progress Bar */
+.MuiLinearProgress-root {
+  height: 10px !important;
+  border-radius: 8px !important;
+  background-color: var(--progress-bar-bg) !important;
+}
+
+.MuiLinearProgress-bar {
+  border-radius: 8px !important;
+}
+
+/* Analysis Sections */
+.analysis-section {
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--primary-color);
+  margin: 1rem 0;
+}
+
+.improvement-area {
+  color: var(--error-color);
+  font-weight: 500;
+}
+
+.recommendation {
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+/* Scrollable Content */
+.scrollable-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #f1f1f1;
+}
+
+.scrollable-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 6px;
+}
+
+/* Responsive Layout */
 @media (max-width: 768px) {
-  .container {
-    padding: 0 12px;
+  .analysis-columns {
+    flex-direction: column;
   }
+  .MuiCard-root {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Chip Status Colors */
+.MuiChip-colorSuccess {
+  background-color: #e8f5e9 !important;
+  color: #2e7d32 !important;
+}
+
+.MuiChip-colorWarning {
+  background-color: #fff3e0 !important;
+  color: #ef6c00 !important;
+}
+
+/* Bullet Points */
+.custom-bullet-list {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.custom-bullet-list li::before {
+  content: "•";
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Hover Effects */
+.interactive-item {
+  transition: transform 0.2s ease;
+}
+
+.interactive-item:hover {
+  transform: translateX(4px);
+}
+
+.main-content {
+  padding: 1rem;
+}
+
+/* Leaderboard */
+.leaderboard-container {
+  margin-top: 1rem;
+}
+
+/* Candidates List */
+.candidates-list-container {
+  margin-top: 1rem;
+}
+
+.search-field {
+  margin-bottom: 1rem;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Tabs Styling */
+.MuiTabs-root {
+  margin-bottom: 1rem;
+}
+
+/* Drawer Customization */
+.MuiDrawer-paper {
+  background-color: #fafafa;
+}
+
+/* AppBar Customization */
+.MuiAppBar-root {
+  background-color: var(--primary-color);
+}
+
+/* Button Customization */
+.MuiButton-root {
+  text-transform: none;
+}
+
+/* Tab Customization */
+.MuiTab-root {
+  font-weight: 500;
 }
