@@ -259,7 +259,6 @@ export default function CandidateProfile({ candidate, onBack }) {
               sx={{ mt: 1 }}
             />
           }
-          titleTypographyProps={{ align: "center" }}
         />
         <CardContent>
           <Typography variant="body1">
@@ -285,17 +284,59 @@ export default function CandidateProfile({ candidate, onBack }) {
               <TrendingUpIcon />
             </Avatar>
           }
-          titleTypographyProps={{ align: "center" }}
         />
         <CardContent>
           {renderScore("Communication Score", candidate.communicationScore)}
           {renderScore("Innovation Score", candidate.innovationScore)}
           {renderScore("Fire in Belly Score", candidate.fireInBellyScore)}
-          <Typography variant="h6" sx={{ mt: 2, textAlign: "center" }}>
-            Overall Score: {candidate.overallscore}
+          <Typography sx={{ mt: 2 }}>
+            Deduction Points : {candidate.deductionPoints}
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{ mt: 2, textAlign: "center", fontWeight: "800" }}
+          >
+            Overall Score: {candidate.overallScore}
           </Typography>
         </CardContent>
       </Card>
+      <Card variant="outlined" sx={{ mb: 3 }}>
+        <CardHeader
+          title="Recommendation"
+          avatar={
+            <Avatar>
+              <ThumbUpIcon />
+            </Avatar>
+          }
+        />
+        <CardContent>
+          <Typography
+            variant="body1"
+            sx={{ textAlign: "center", fontWeight: "800" }}
+          >
+            {toTitleCase(candidate.recommendation)}
+          </Typography>
+        </CardContent>
+      </Card>
+      <Card variant="outlined" sx={{ mb: 3 }}>
+        <CardHeader
+          title="Summary"
+          avatar={
+            <Avatar>
+              <SummarizeIcon />
+            </Avatar>
+          }
+        />
+        <CardContent>
+          <Typography
+            variant="body1"
+            sx={{ textAlign: "center", fontWeight: "500" }}
+          >
+            {toTitleCase(candidate.summary)}
+          </Typography>
+        </CardContent>
+      </Card>
+
       <Box sx={{ display: "flex", gap: 3, mb: 3 }}>
         <Card variant="outlined" sx={{ flex: 1 }}>
           <CardHeader
@@ -305,7 +346,6 @@ export default function CandidateProfile({ candidate, onBack }) {
                 <AssessmentIcon />
               </Avatar>
             }
-            titleTypographyProps={{ align: "center" }}
           />
           <CardContent sx={{ maxHeight: 600, overflowY: "auto" }}>
             <RenderAnalysis analysis={candidate.detailedAnalysis} />
@@ -319,45 +359,12 @@ export default function CandidateProfile({ candidate, onBack }) {
                 <PsychologyIcon />
               </Avatar>
             }
-            titleTypographyProps={{ align: "center" }}
           />
           <CardContent sx={{ maxHeight: 600, overflowY: "auto" }}>
             <RenderAnalysis analysis={candidate.behavioralAnalysis} />
           </CardContent>
         </Card>
       </Box>
-      <Card variant="outlined" sx={{ mb: 3 }}>
-        <CardHeader
-          title="Recommendation"
-          avatar={
-            <Avatar>
-              <ThumbUpIcon />
-            </Avatar>
-          }
-          titleTypographyProps={{ align: "center" }}
-        />
-        <CardContent>
-          <Typography variant="body1" sx={{ textAlign: "center" }}>
-            {toTitleCase(candidate.recommendation)}
-          </Typography>
-        </CardContent>
-      </Card>
-      <Card variant="outlined">
-        <CardHeader
-          title="Summary"
-          avatar={
-            <Avatar>
-              <SummarizeIcon />
-            </Avatar>
-          }
-          titleTypographyProps={{ align: "center" }}
-        />
-        <CardContent>
-          <Typography variant="body1" sx={{ textAlign: "center" }}>
-            {toTitleCase(candidate.summary)}
-          </Typography>
-        </CardContent>
-      </Card>
     </Box>
   );
 }

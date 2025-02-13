@@ -13,6 +13,7 @@ export default function AdminDashboard() {
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  // 0 = Dashboard, 1 = Leaderboard
   const [selectedTab, setSelectedTab] = useState(0);
 
   useEffect(() => {
@@ -41,21 +42,24 @@ export default function AdminDashboard() {
       });
     } catch (error) {
       console.error("Error parsing analysis data:", error);
-      setSelectedCandidate(candidate); // Fallback to raw data if needed
+      setSelectedCandidate(candidate);
     }
   };
 
   return (
     <Layout>
       <Box sx={{ width: "100%" }}>
+        {/* Tabs for Navigation */}
         <Tabs
           value={selectedTab}
           onChange={(e, val) => setSelectedTab(val)}
           centered
         >
-          <Tab label="Candidates" />
+          <Tab label="Dashboard" />
           <Tab label="Leaderboard" />
         </Tabs>
+
+        {/* Conditional Rendering of Main Content */}
         {selectedTab === 0 &&
           (selectedCandidate ? (
             <CandidateProfile
