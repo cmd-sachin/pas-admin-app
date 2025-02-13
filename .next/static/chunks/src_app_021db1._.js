@@ -329,7 +329,7 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
     _s();
     const [currentPage, setCurrentPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(1);
     const [searchTerm, setSearchTerm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const filteredCandidates = candidates.filter((candidate)=>candidate.Name.toLowerCase().includes(searchTerm.toLowerCase()));
+    const filteredCandidates = candidates.filter((candidate)=>candidate.name.toLowerCase().includes(searchTerm.toLowerCase()));
     const totalPages = Math.ceil(filteredCandidates.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const paginatedCandidates = filteredCandidates.slice(startIndex, startIndex + ITEMS_PER_PAGE);
@@ -405,16 +405,16 @@ function CandidatesList({ candidates, loading, error, onSelectCandidate }) {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
                                                     variant: "h6",
-                                                    children: candidate.Name
+                                                    children: candidate.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/CandidateList.jsx",
                                                     lineNumber: 82,
                                                     columnNumber: 21
                                                 }, this),
-                                                candidate.Email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
+                                                candidate.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__["Typography"], {
                                                     variant: "body2",
                                                     color: "text.secondary",
-                                                    children: candidate.Email
+                                                    children: candidate.email
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/CandidateList.jsx",
                                                     lineNumber: 84,
@@ -1294,8 +1294,8 @@ function CandidateProfile({ candidate, onBack }) {
                             columnNumber: 13
                         }, void 0),
                         action: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Chip$2f$Chip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Chip$3e$__["Chip"], {
-                            label: toTitleCase(candidate.Status),
-                            color: getStatusColor(candidate.Status),
+                            label: toTitleCase(candidate.status),
+                            color: getStatusColor(candidate.status),
                             sx: {
                                 mt: 1
                             }
@@ -1325,7 +1325,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         columnNumber: 13
                                     }, this),
                                     " ",
-                                    toTitleCase(candidate.Name)
+                                    toTitleCase(candidate.name)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
@@ -1343,7 +1343,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         columnNumber: 13
                                     }, this),
                                     " ",
-                                    candidate.phone_number
+                                    candidate.phoneNumber
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
@@ -1361,7 +1361,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         columnNumber: 13
                                     }, this),
                                     " ",
-                                    toTitleCase(candidate.Department?.trim())
+                                    toTitleCase(candidate.department?.trim())
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",
@@ -1379,7 +1379,7 @@ function CandidateProfile({ candidate, onBack }) {
                                         columnNumber: 13
                                     }, this),
                                     " ",
-                                    toTitleCase(candidate.College)
+                                    toTitleCase(candidate.college)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/components/CandidateProfile.jsx",

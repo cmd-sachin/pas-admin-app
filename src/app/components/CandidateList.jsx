@@ -28,7 +28,7 @@ export default function CandidatesList({
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredCandidates = candidates.filter((candidate) =>
-    candidate.Name.toLowerCase().includes(searchTerm.toLowerCase())
+    candidate.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   const totalPages = Math.ceil(filteredCandidates.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -79,10 +79,10 @@ export default function CandidatesList({
                   }}
                 >
                   <Box>
-                    <Typography variant="h6">{candidate.Name}</Typography>
-                    {candidate.Email && (
+                    <Typography variant="h6">{candidate.name}</Typography>
+                    {candidate.email && (
                       <Typography variant="body2" color="text.secondary">
-                        {candidate.Email}
+                        {candidate.email}
                       </Typography>
                     )}
                   </Box>

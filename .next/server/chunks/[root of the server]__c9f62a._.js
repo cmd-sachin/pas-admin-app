@@ -121,9 +121,7 @@ async function GET() {
             }).eachPage((records, fetchNextPage)=>{
                 records.forEach((record)=>{
                     const fields = record.fields;
-                    if (fields.Name && fields.College && fields.Department && fields.phone_number && fields.Email && fields.overallscore && fields.innovationScore && fields.fireInBellyScore && fields.communicationScore && fields.deductionPoints && fields.summary && fields.recommendation && fields.detailedAnalysis && fields.behavioralAnalysis) {
-                        tempRecords.push(fields);
-                    }
+                    tempRecords.push(fields);
                 });
                 fetchNextPage();
             }, (err)=>{

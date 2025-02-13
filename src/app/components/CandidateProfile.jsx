@@ -254,8 +254,8 @@ export default function CandidateProfile({ candidate, onBack }) {
           }
           action={
             <Chip
-              label={toTitleCase(candidate.Status)}
-              color={getStatusColor(candidate.Status)}
+              label={toTitleCase(candidate.status)}
+              color={getStatusColor(candidate.status)}
               sx={{ mt: 1 }}
             />
           }
@@ -263,17 +263,17 @@ export default function CandidateProfile({ candidate, onBack }) {
         />
         <CardContent>
           <Typography variant="body1">
-            <strong>Name:</strong> {toTitleCase(candidate.Name)}
+            <strong>Name:</strong> {toTitleCase(candidate.name)}
           </Typography>
           <Typography variant="body1">
-            <strong>Phone:</strong> {candidate.phone_number}
+            <strong>Phone:</strong> {candidate.phoneNumber}
           </Typography>
           <Typography variant="body1">
             <strong>Department:</strong>{" "}
-            {toTitleCase(candidate.Department?.trim())}
+            {toTitleCase(candidate.department?.trim())}
           </Typography>
           <Typography variant="body1">
-            <strong>College:</strong> {toTitleCase(candidate.College)}
+            <strong>College:</strong> {toTitleCase(candidate.college)}
           </Typography>
         </CardContent>
       </Card>
