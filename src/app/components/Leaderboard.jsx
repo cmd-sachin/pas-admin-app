@@ -46,16 +46,16 @@ export default function Leaderboard({ candidates, loading, error }) {
                 >
                   <Box>
                     <Typography variant="h6">
-                      {index + 1}. {candidate.Name}
+                      {index + 1}. {candidate.name}
                     </Typography>
-                    {candidate.Email && (
+                    {candidate.email && (
                       <Typography variant="body2" color="text.secondary">
-                        {candidate.Email}
+                        {candidate.email}
                       </Typography>
                     )}
                   </Box>
                   <Typography variant="h6">
-                    Score: {candidate.overallscore}
+                    Score: {candidate.overallScore}
                   </Typography>
                 </CardContent>
               </Card>
