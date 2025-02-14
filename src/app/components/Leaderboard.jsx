@@ -13,9 +13,11 @@ import {
 import "../../app/globals.css";
 
 export default function Leaderboard({ candidates, loading, error }) {
+  // Sort candidates by overallScore (descending)
   const sortedCandidates = [...candidates].sort(
-    (a, b) => b.overallscore - a.overallscore
+    (a, b) => b.overallScore - a.overallScore
   );
+
   const toTitleCase = (str) => {
     if (!str) return "";
     return str
@@ -38,35 +40,45 @@ export default function Leaderboard({ candidates, loading, error }) {
           </Alert>
         ) : (
           <Box>
-            {sortedCandidates.map((candidate, index) => (
-              <Card
-                key={index}
-                variant="outlined"
-                sx={{ mb: 2, "&:hover": { bgcolor: "action.hover" } }}
-              >
-                <CardContent
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
+            {sortedCandidates.map((candidate, index) => {
+              const emoji =
+                index === 0
+                  ? "🥇"
+                  : index === 1
+                  ? "🥈"
+                  : index === 2
+                  ? "🥉"
+                  : "";
+              return (
+                <Card
+                  key={index}
+                  variant="outlined"
+                  sx={{ mb: 2, "&:hover": { bgcolor: "action.hover" } }}
                 >
-                  <Box>
-                    <Typography variant="h6">
-                      {index + 1}. {toTitleCase(candidate.name)}
-                    </Typography>
-                    {candidate.email && (
-                      <Typography variant="body2" color="text.secondary">
-                        {candidate.email}
+                  <CardContent
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box>
+                      <Typography variant="h6">
+                        {index + 1}. {emoji} {toTitleCase(candidate.name)}
                       </Typography>
-                    )}
-                  </Box>
-                  <Typography variant="h6">
-                    Score: {candidate.overallScore}
-                  </Typography>
-                </CardContent>
-              </Card>
-            ))}
+                      {candidate.email && (
+                        <Typography variant="body2" color="text.secondary">
+                          {candidate.email}
+                        </Typography>
+                      )}
+                    </Box>
+                    <Typography variant="h6">
+                      Score: {candidate.overallScore}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </Box>
         )}
       </CardContent>

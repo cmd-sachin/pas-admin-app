@@ -19,6 +19,7 @@ import PsychologyIcon from "@mui/icons-material/Psychology";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 import "../../app/globals.css";
+import { Candidate } from "../types/Candidate";
 
 const toTitleCase = (str) => {
   if (!str) return "";
@@ -94,6 +95,7 @@ const renderField = (label, value) => {
         <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
           {toTitleCase(label)}:
         </Typography>
+
         <Box sx={{ ml: 2 }}>
           {Object.keys(value).map((subKey, idx) => (
             <Box key={idx} sx={{ mb: 0.5 }}>
@@ -155,15 +157,13 @@ const RenderAnalysis = ({ analysis, headingColor }) => {
           >
             {toTitleCase(category)}
           </Typography>
+
           {Array.isArray(analysis[category]) ? (
             analysis[category].map((entry, idx) => (
               <Box
                 key={idx}
                 sx={{ mb: 2, pl: 2, borderLeft: "2px solid #ddd", py: 1 }}
               >
-                <Typography variant="subtitle1">
-                  Question {renderValue(entry.questionNumber)}
-                </Typography>
                 <Typography variant="body2">
                   <strong>Key Competencies:</strong>{" "}
                   {Array.isArray(entry.keyCompetencies)
@@ -232,13 +232,8 @@ const RenderAnalysis = ({ analysis, headingColor }) => {
 };
 
 // ----------------------------------------------------------------
-// New component for paginated Detailed Analysis (one item per page)
-// Updated to handle the new array structure and render the question,
-// response, and the complete analysis report.
+
 const PaginatedDetailedAnalysis = ({ analysis }) => {
-  // Flatten analysis into an array.
-  // If analysis is already an array (new structure), use it directly.
-  // Otherwise, if it is an object, flatten it by category.
   const flattenAnalysis = (analysisData) => {
     if (!analysisData) return [];
     if (Array.isArray(analysisData)) {
@@ -258,7 +253,7 @@ const PaginatedDetailedAnalysis = ({ analysis }) => {
       if (Array.isArray(entries)) {
         entries.forEach((entry) => {
           // If not already provided, add a topic field from the category key.
-          questions.push({ ...entry, topic: entry.topic || category });
+          questions.push({ ...entry, topic: entry.topic });
         });
       }
     });
@@ -276,7 +271,7 @@ const PaginatedDetailedAnalysis = ({ analysis }) => {
 
   // Render a single detailed analysis item.
   const renderQuestion = (questionData) => {
-    const { topic, headers, question, response, report } = questionData;
+    const { headers, question, response, report } = questionData;
     return (
       <Box
         sx={{
@@ -288,6 +283,9 @@ const PaginatedDetailedAnalysis = ({ analysis }) => {
         }}
       >
         <Box sx={{ mb: 1 }}>
+          <Typography sx={{ fontWeight: "800", color: "grey" }}>
+            {headers}
+          </Typography>
           <Typography variant="body1" sx={{ fontWeight: "bold" }}>
             Question:
           </Typography>
@@ -405,8 +403,6 @@ const PaginatedDetailedAnalysis = ({ analysis }) => {
 };
 
 // ----------------------------------------------------------------
-// Updated CandidateProfile layout with paginated detailed analysis and
-// a full-width behavioral analysis section (with colored headings)
 export default function CandidateProfile({ candidate, onBack }) {
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
@@ -418,6 +414,28 @@ export default function CandidateProfile({ candidate, onBack }) {
         return "default";
     }
   };
+
+  // Helper: safely parse JSON if data is a string.
+  const safeParse = (data) => {
+    if (typeof data === "string") {
+      try {
+        return JSON.parse(data);
+      } catch (error) {
+        return data;
+      }
+    }
+    return data;
+  };
+
+  // If the candidate status is "ongoing", ensure we parse analysis fields.
+  const detailedAnalysis =
+    candidate.status?.toLowerCase() === "ongoing"
+      ? safeParse(candidate.detailedAnalysis)
+      : candidate.detailedAnalysis;
+  const behavioralAnalysis =
+    candidate.status?.toLowerCase() === "ongoing"
+      ? safeParse(candidate.behavioralAnalysis)
+      : candidate.behavioralAnalysis;
 
   return (
     <Box sx={{ maxWidth: 900, mx: "auto", p: 3 }}>
@@ -519,7 +537,7 @@ export default function CandidateProfile({ candidate, onBack }) {
         </CardContent>
       </Card>
 
-      {/* Detailed Analysis Section with Pagination (full width) */}
+      {/* Detailed Analysis Section with Pagination */}
       <Card variant="outlined" sx={{ mb: 3, width: "100%" }}>
         <CardHeader
           title="Detailed Analysis"
@@ -530,11 +548,11 @@ export default function CandidateProfile({ candidate, onBack }) {
           }
         />
         <CardContent sx={{ maxHeight: 400, overflowY: "auto" }}>
-          <PaginatedDetailedAnalysis analysis={candidate.detailedAnalysis} />
+          <PaginatedDetailedAnalysis analysis={detailedAnalysis} />
         </CardContent>
       </Card>
 
-      {/* Behavioral Analysis Section (below detailed analysis, full width, with colored headings) */}
+      {/* Behavioral Analysis Section */}
       <Card variant="outlined" sx={{ mb: 3, width: "100%" }}>
         <CardHeader
           title="Behavioral Analysis"
@@ -546,7 +564,7 @@ export default function CandidateProfile({ candidate, onBack }) {
         />
         <CardContent sx={{ maxHeight: 350, overflowY: "auto" }}>
           <RenderAnalysis
-            analysis={candidate.behavioralAnalysis}
+            analysis={behavioralAnalysis}
             headingColor="primary.main"
           />
         </CardContent>
