@@ -73,7 +73,7 @@ export default function Leaderboard({ candidates, loading, error }) {
                       )}
                     </Box>
                     <Typography variant="h6">
-                      Score: {candidate.overallScore || "ongoing"}
+                      Score: {candidate.overallScore || "On Going"}
                     </Typography>
                   </CardContent>
                 </Card>
