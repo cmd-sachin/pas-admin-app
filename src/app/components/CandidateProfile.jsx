@@ -532,7 +532,7 @@ export default function CandidateProfile({ candidate, onBack }) {
             variant="body1"
             sx={{ textAlign: "center", fontWeight: "500" }}
           >
-            {toTitleCase(candidate.summary)}
+            {candidate.summary}
           </Typography>
         </CardContent>
       </Card>
