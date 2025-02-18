@@ -21,15 +21,32 @@ export default function AdminDashboard() {
       try {
         setLoading(true);
         const response = await fetch("/api/airTable");
-        if (!response.ok) throw new Error("Failed to fetch candidates");
+
+        // Check for a 500 error or any non-OK status
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(
+            `Failed to fetch candidates. Server responded with: ${errorText}`
+          );
+        }
+
         const data = await response.json();
+
+        // Check if the table is empty
+        if (!data.data || data.data.length === 0) {
+          throw new Error("Candidates table is empty");
+        }
+
         setCandidates(data.data);
+        setError(null); // Clear any previous error
       } catch (err) {
         setError(err.message);
+        setCandidates([]); // Clear candidates in case of error
       } finally {
         setLoading(false);
       }
     };
+
     fetchCandidates();
   }, []);
 
