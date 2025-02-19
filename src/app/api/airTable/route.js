@@ -28,7 +28,7 @@ export async function GET() {
           }
         );
     });
-    console.log(records[0].detailedAnalysis);
+
     return NextResponse.json({ data: records });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
