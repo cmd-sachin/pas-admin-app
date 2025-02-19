@@ -111,8 +111,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$airtable$2f$
 async function GET() {
     try {
         const base = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$airtable$2f$lib$2f$airtable$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]({
-            apiKey: "patyfDcedyFIgbnAE.d453878862966d0a8e6e210e2a57b2056aa6ce62f8d96ea597fc3d033b5a678e"
-        }).base("appBZJKmKN3iViICl");
+            apiKey: process.env.accessTokenKey
+        }).base(process.env.baseKey);
         let allRecords = [];
         const records = await new Promise((resolve, reject)=>{
             const tempRecords = [];
@@ -132,7 +132,6 @@ async function GET() {
                 }
             });
         });
-        console.log(records[0].detailedAnalysis);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             data: records
         });

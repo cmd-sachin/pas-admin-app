@@ -29,9 +29,16 @@ export default function Leaderboard({ candidates, loading, error }) {
   return (
     <Card sx={{ mt: 3 }}>
       <CardHeader title={<Typography variant="h5">Leaderboard</Typography>} />
+      <Typography
+        variant="subtitle1"
+        color="text.secondary"
+        sx={{ mx: 1, mt: 2, fontWeight: 550, color: "var(--primary-color)" }}
+      >
+        Candidates Found: {sortedCandidates.length}
+      </Typography>
       <CardContent>
         {loading ? (
-          <Box sx={{ display: "flex", justifyContent: "center", py: 4 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", pb: 4 }}>
             <CircularProgress />
           </Box>
         ) : error ? (

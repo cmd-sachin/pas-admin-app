@@ -40,6 +40,7 @@ export default function CandidatesList({
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+
   const toTitleCase = (str) => {
     if (!str) return "";
     return str
@@ -72,6 +73,14 @@ export default function CandidatesList({
           </Alert>
         ) : (
           <Box>
+            {/* Candidate Count */}
+            <Typography
+              variant="subtitle1"
+              color="text.secondary"
+              sx={{ mb: 2, fontWeight: 550, color: "var(--primary-color)" }}
+            >
+              Candidates Found: {filteredCandidates.length}
+            </Typography>
             {paginatedCandidates.map((candidate, index) => (
               <Card
                 key={index}
