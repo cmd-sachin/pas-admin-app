@@ -54,8 +54,8 @@ export default function AdminDashboard() {
     try {
       setSelectedCandidate({
         ...candidate,
-        detailedAnalysis: JSON.parse(candidate.detailedAnalysis),
-        behavioralAnalysis: JSON.parse(candidate.behavioralAnalysis),
+        detailedAnalysis: JSON.parse(candidate?.detailedAnalysis),
+        behavioralAnalysis: JSON.parse(candidate?.behavioralAnalysis),
       });
     } catch (error) {
       console.error("Error parsing analysis data:", error);
